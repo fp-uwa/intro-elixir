@@ -1,8 +1,8 @@
 defmodule Batsmen do
 
 @doc """
-  Run this file with the command:
-    "elixir examples/problems/batsmen.exs"
+  Test this file with the command:
+    "mix test test/batsmen_test.exs"
 
   Read in batsmen from a comma separated file and
   convert them into a list of objects with 
@@ -38,24 +38,7 @@ defmodule Batsmen do
   def parse(source) do
       File.stream!(source) #opens file & streams line by line
       |> Stream.map(&String.trim_trailing/1) #removes newlines
-      |> Stream.map(fn(line) -> #converts line to map
-        line 
-          |> String.split(",")
-          |> Enum.map(fn(val) -> val |> String.trim end)
-          |> Enum.zip([:name, :total, :average])
-          |> Enum.map(fn {k,v}->{v,k} end)
-          |> Map.new
-      end) 
-      |> Stream.map(fn(line) -> #splits name into initials & surname
-        initials = String.split(line[:name], " ") |> List.first
-        surname = String.split(line[:name], " ") |> List.last
-        %{initials: initials, surname: surname, average: line[:average], total: line[:total]}
-      end) 
-      |> Stream.map(fn(line) -> struct(Batsman, line) end) #converts line to struct
+      |> Stream.map(fn(line) -> line end) #TODO:
       |> Enum.to_list
   end
-
-
 end
-
-IO.inspect Batsmen.parse("assets/batsmen-data.txt")

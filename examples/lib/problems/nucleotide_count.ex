@@ -2,6 +2,9 @@ defmodule NucleotideCount do
   @nucleotides [?A, ?C, ?G, ?T]
 
   @doc """
+    Test this file with the command:
+    "mix test test/nucleotide_count_test.exs"
+
   Counts individual nucleotides in a NucleotideCount strand.
 
   ## Examples
@@ -14,7 +17,7 @@ defmodule NucleotideCount do
   """
   @spec count([char], char) :: non_neg_integer
   def count(strand, nucleotide) do
-    Enum.count(strand, fn(x) -> x == nucleotide end)
+    #TODO:
   end
 
 
@@ -28,6 +31,6 @@ defmodule NucleotideCount do
   """
   @spec histogram([char]) :: map
   def histogram(strand) do
-    for n <- @nucleotides, into: %{}, do: {n, count(strand, n)}
+    #TODO:
   end
 end

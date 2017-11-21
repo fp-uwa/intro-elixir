@@ -1,4 +1,4 @@
-defmodule SecretHandshake do
+defmodule SecretHandshakeSolution do
   use Bitwise
   @doc """
   Determine the actions of a secret handshake based on the binary
